@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center h-screen">
- <h1 >WELCOME TO MY PORTFOLIO</h1>
+    <h1>REPOSITORIES</h1>
   </div>
 </template>
 
@@ -8,6 +8,4 @@
 export default {}
 </script>
 
-<style >
-
-</style>
+<style></style>

@@ -1,33 +1,16 @@
 <template>
-  <div>
+  <div class=" overflow-x-hidden overflow-y-auto  relative">
     <Nuxt />
-    <button
-      @click="btnActive = !btnActive"
-      :class="`w-12
-        h-12
-        ${btnActive ? 'rotate-45 bg-red-800' : 'bg-black '}
-        text-white
-        delay-100
-        transform
-        transition-all
-        rounded-full
-        fixed
-        bottom-5
-        inset-x-1/2
-        focus:outline-none
-        `"
-    >
-      <i class="fas fa-plus"> </i>
-    </button>
+
+  <Navigation/>
   </div>
 </template>
 <script>
+import Navigation from '../components/Navigation'
 export default {
-  data() {
-    return {
-      btnActive: false,
-    }
-  },
+  components:{
+    Navigation
+  }
 }
 </script>
 <style>
