@@ -1,35 +1,23 @@
 <template>
-  <div class=" overflow-x-hidden overflow-y-auto  relative">
-    <Nuxt />
-
+  <div class=" overflow-x-hidden  relative">
+    <nuxt />
   <Navigation/>
+  <button class="fixed right-8 bottom-7 focus:outline-none "  @click="scroll('home')"><i class="fas fa-chevron-up"></i></button>
   </div>
 </template>
 <script>
 import Navigation from '../components/Navigation'
 export default {
+
+  methods: {
+     scroll(id) {  
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  },
   components:{
     Navigation
   }
 }
 </script>
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-</style>

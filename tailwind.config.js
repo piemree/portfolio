@@ -1,8 +1,13 @@
 module.exports = {
+ // mode:"jit",
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        body:['Quicksand']
+      }
+    },
     screens:{
       "tb":"800px"
     }
@@ -11,4 +16,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+ 
 }

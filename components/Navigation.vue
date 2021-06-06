@@ -23,19 +23,31 @@
           text-gray-400 text-xl
         "
       >
-        <nuxt-link
-          exact-active-class="text-white "
-          class="select-none transition-all hover:text-white transform"
-          to="/"
-          >HOME</nuxt-link
+        <button
+          @click="scroll('home')"
+          class="
+            select-none
+            transition-all
+            hover:text-white
+            transform
+            focus:outline-none
+          "
         >
+          HOME
+        </button>
 
-        <nuxt-link
-          active-class="text-white "
-          class="select-none transition-all hover:text-white transform"
-          to="/repos"
-          >REPOSITORIES</nuxt-link
+        <button
+          @click="scroll('repos')"
+          class="
+            select-none
+            transition-all
+            hover:text-white
+            transform
+            focus:outline-none
+          "
         >
+          REPOSITORIES
+        </button>
       </ul>
     </div>
     <div
@@ -50,8 +62,7 @@
           tb:justify-evenly
           tb:-translate-x-16
           tb:h-auto
-          flex 
-          flex-col-reverse
+          flex flex-col-reverse
           items-center
           justify-evenly
           inset-y-1/4
@@ -62,19 +73,31 @@
           text-gray-400 text-xl
         "
       >
-        <nuxt-link
-          active-class="text-white "
-          class="select-none transition-all hover:text-white transform"
-          to="/projects"
-          >PROJECTS</nuxt-link
+        <button
+          @click="scroll('projects')"
+          class="
+            select-none
+            transition-all
+            hover:text-white
+            transform
+            focus:outline-none
+          "
         >
+          PROJECTS
+        </button>
 
-        <nuxt-link
-          active-class="text-white "
-          class="select-none transition-all hover:text-white transform"
-          to="/about"
-          >ABOUT</nuxt-link
+        <button
+          @click="scroll('about')"
+          class="
+            select-none
+            transition-all
+            hover:text-white
+            transform
+            focus:outline-none
+          "
         >
+          ABOUT
+        </button>
       </ul>
     </div>
 
@@ -109,20 +132,16 @@ export default {
   data() {
     return {
       btnActive: false,
-      
     }
   },
   methods: {
-    closeNav() {
-      alert()
-    },
-  },
-  watch: {
-    $route(e) {
+    scroll(id) {
+      document.getElementById(id).scrollIntoView()
       this.btnActive = !this.btnActive
     },
   },
   mounted() {
+    window.scrollTo(0, 0)
     window.addEventListener('keydown', (e) =>
       e.key == 'Escape' ? (this.btnActive = !this.btnActive) : null
     )

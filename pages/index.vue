@@ -1,13 +1,23 @@
 <template>
-  <div class="flex flex-col justify-center items-center h-screen">
- <h1 >WELCOME TO MY PORTFOLIO</h1>
+
+  <div class="container" >
+    <Home id="home"  />
+    <Projects id="projects" />
+    <About id="about"  />
   </div>
+
 </template>
 
 <script>
-export default {}
+import Home from '../components/Home'
+import Projects from '../components/Projects'
+import About from '../components/About'
+export default {
+  scrollToTop: true,
+  components: {
+    Home,
+    Projects,
+    About
+  },
+}
 </script>
-
-<style >
-
-</style>
