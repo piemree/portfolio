@@ -37,7 +37,7 @@
         </button>
 
         <button
-          @click="scroll('repos')"
+          @click="scroll('projects')"
           class="
             select-none
             transition-all
@@ -46,7 +46,7 @@
             focus:outline-none
           "
         >
-          REPOSITORIES
+          PROJECTS
         </button>
       </ul>
     </div>
@@ -73,18 +73,7 @@
           text-gray-400 text-xl
         "
       >
-        <button
-          @click="scroll('projects')"
-          class="
-            select-none
-            transition-all
-            hover:text-white
-            transform
-            focus:outline-none
-          "
-        >
-          PROJECTS
-        </button>
+       
 
         <button
           @click="scroll('about')"
@@ -97,6 +86,19 @@
           "
         >
           ABOUT
+        </button>
+
+         <button
+          @click="scroll('contact')"
+          class="
+            select-none
+            transition-all
+            hover:text-white
+            transform
+            focus:outline-none
+          "
+        >
+        CONTACT
         </button>
       </ul>
     </div>

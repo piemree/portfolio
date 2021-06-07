@@ -39,7 +39,15 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
+  serverMiddleware: {
+    '/api': '~/api'
+  },
 
+    // server: {
+  //  port: 8000, // default: 3000
+  //  host: '0.0.0.0' // default: localhost
+  // },
+  
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios

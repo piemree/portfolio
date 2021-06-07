@@ -4,6 +4,7 @@
     <Home id="home"  />
     <Projects id="projects" />
     <About id="about"  />
+    <Contact id="contact"  />
   </div>
 
 </template>
@@ -12,12 +13,14 @@
 import Home from '../components/Home'
 import Projects from '../components/Projects'
 import About from '../components/About'
+import Contact from '../components/Contact'
 export default {
   scrollToTop: true,
   components: {
     Home,
     Projects,
-    About
+    About,
+    Contact
   },
 }
 </script>
