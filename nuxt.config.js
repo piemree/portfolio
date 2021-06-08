@@ -40,14 +40,14 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
   serverMiddleware: {
-    '/api': '~/api'
+    '/api': '~/api',
   },
 
-    // server: {
+  // server: {
   //  port: 8000, // default: 3000
   //  host: '0.0.0.0' // default: localhost
   // },
-  
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -59,7 +59,11 @@ export default {
     exposeConfig: true,
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseUrl: `${
+      process.env.HOST ? process.env.HOST : 'http://localhost:3000/api'
+    }`,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

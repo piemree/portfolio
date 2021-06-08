@@ -14,10 +14,11 @@
     >
     <button @click="$emit('close',false)" class="absolute top-3 right-3 focus:outline-none">X</button>
       <form @submit.prevent="send" class="flex flex-col w-full items-center justify-center px-10">
-        <input class="input " placeholder="email" type="email" />
-        <input class="input " placeholder="subject" type="text" />
-        <textarea class="input resize-none" rows="5"  placeholder="message"></textarea>
-        <button class="home-btn mt-3 focus:outline-none" @click="send">
+        <input v-model="fullname" class="input " placeholder="Full Name" type="text" />
+        <input v-model="sender" class="input " placeholder="Email" type="email" />
+        <input v-model="subject" class="input " placeholder="Subject" type="text" />
+        <textarea v-model="message" class="input resize-none" rows="5"  placeholder="Message"></textarea>
+        <button class="home-btn mt-3 focus:outline-none" type="submit">
           SEND
         </button>
       </form>
@@ -27,22 +28,30 @@
 
 <script>
 export default {
-   
+   data() {
+     return {
+       fullname:"",
+       sender:"",
+       subject:"",
+       message:""
+     }
+   },
   methods: {
     send() {
       this.$axios
-        .post('http://localhost:3000/api/mail-me', {
-          sender: 'pi.emree@gmail.com',
-          subject: 'hello abey merhaba',
-          message: "helle it's test message",
+        .post('/mail-me', {
+          fullname:this.fullname,
+          sender: this.sender,
+          subject: this.subject,
+          message: this.message,
+        }).then((res) => {
+          console.log(res)
         })
         .catch((err) => {
           console.log(err)
         })
     },
-    closeModel(){
-
-    }
+   
   },
 }
 </script>
