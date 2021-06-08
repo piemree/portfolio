@@ -40,7 +40,7 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
   serverMiddleware: {
-    '/api': '~/api',
+    '/api': '@/api',
   },
 
   // server: {
@@ -54,7 +54,7 @@ export default {
     '@nuxtjs/axios',
   ],
   tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
+    cssPath: '@/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
     exposeConfig: true,
   },
