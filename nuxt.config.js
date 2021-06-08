@@ -1,4 +1,4 @@
-let development = process.env.NODE_ENV !== 'production'
+let production = process.env.NODE_ENV === 'production'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
 
@@ -45,8 +45,8 @@ export default {
   },
 
   server: {
-    port: `${process.env.PORT ? process.env.PORT : 3000}`, // default: 3000
-    host: `${process.env.HOST_NAME ? process.env.HOST_NAME : 'localhost'}`, // default: localhost
+    port: process.env.PORT || 3000, // default: 3000
+    host: `${production ? '0.0.0.0' : 'localhost'}`, // default: localhost
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -62,9 +62,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
 
   axios: {
-    baseUrl: `${
-      process.env.HOST ? process.env.HOST : 'http://localhost:3000/api'
-    }`,
+    baseUrl: process.env.HOST || 'http://localhost:3000/api',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
