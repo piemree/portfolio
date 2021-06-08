@@ -1,3 +1,4 @@
+let development = process.env.NODE_ENV !== 'production'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
 
@@ -43,10 +44,10 @@ export default {
     '/api': '@/api',
   },
 
-  // server: {
-  //  port: 8000, // default: 3000
-  //  host: '0.0.0.0' // default: localhost
-  // },
+  server: {
+    port: `${process.env.PORT ? process.env.PORT : 3000}`, // default: 3000
+    host: `${process.env.HOST_NAME ? process.env.HOST_NAME : 'localhost'}`, // default: localhost
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -59,6 +60,7 @@ export default {
     exposeConfig: true,
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
+
   axios: {
     baseUrl: `${
       process.env.HOST ? process.env.HOST : 'http://localhost:3000/api'
