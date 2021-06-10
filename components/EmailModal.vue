@@ -39,7 +39,7 @@ export default {
   methods: {
     send() {
       this.$axios
-        .post('/mail-me', {
+        .post('/api/mail-me', {
           fullname:this.fullname,
           sender: this.sender,
           subject: this.subject,
