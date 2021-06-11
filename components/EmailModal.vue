@@ -103,13 +103,8 @@ export default {
       this.btnText = false
       this.circle = true
       this.$axios
-<<<<<<< HEAD
-        .post('/api/mail-me', {
-          fullname:this.fullname,
-=======
         .post('/mail-me', {
           fullname: this.fullname,
->>>>>>> projects page
           sender: this.sender,
           subject: this.subject,
           message: this.message,
@@ -122,6 +117,7 @@ export default {
         .catch((err) => {
           this.circle = false
           this.mailErr = true
+           setTimeout(() => this.$emit('close', false), 1000)
           console.log(err)
         })
     },
