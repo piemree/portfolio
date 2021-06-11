@@ -13,7 +13,7 @@
     <EmailModal v-if="showModal" @close="closeModel" />
     <div class=" h-2/3 w-2/3 flex items-end ">
     <div class=" w-full h-1/2 flex-1 flex flex-col items-center justify-between ">
-        <button class="home-btn  focus:outline-none" @click="openModal">
+        <button class="home-btn  " @click="openModal">
         MAIL ME
       </button>
       <div class="text-center">
@@ -36,8 +36,8 @@ export default {
     openModal() {
       this.showModal = true
     },
-    closeModel(e) {
-      this.showModal = e
+    closeModel(val) {
+      this.showModal = val
     },
   },
   components: {

@@ -6,7 +6,7 @@
 
 @layer base {
   html {
-    font-family:Quicksand;
+    font-family: Quicksand;
     font-size: 16px;
     word-spacing: 1px;
     -ms-text-size-adjust: 100%;
@@ -14,8 +14,6 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
-   
-    
   }
   *,
   *::before,
@@ -25,12 +23,13 @@
   }
   ::-webkit-scrollbar {
     display: none;
-}
+  }
 }
 
-@layer utilities{
-    .home-btn{
-        @apply  px-3 py-2 border-black border hover:bg-black hover:text-white transition-all ease-linear  duration-200 rounded-sm ;
-        min-width:8rem;
-    }
+@layer utilities {
+  .home-btn {
+    @apply px-3 py-2 border-black border hover:bg-black hover:text-white transition-all ease-linear  duration-200 rounded-sm focus:outline-none;
+    min-width: 8rem;
+    min-height: 42px;
+  }
 }

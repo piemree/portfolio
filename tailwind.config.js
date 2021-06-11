@@ -6,10 +6,13 @@ module.exports = {
     extend: {
       fontFamily:{
         body:['Quicksand']
-      }
+      },
     },
     screens:{
-      "tb":"800px"
+      "smtb":"500px",
+      "tb":"800px",
+      "laptop":"1100px",
+      "normal":"1500px",
     }
   },
   variants: {

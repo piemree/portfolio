@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div
-      :class="`bg-black fixed h-screen w-1/2 left-0 top-0 transition-all ease-in-out transform delay-200 duration-700 ${
+      :class="`bg-black fixed h-screen w-1/2 left-0 top-0 transition-all ease-in-out transform delay-200 duration-700 z-40 ${
         !btnActive ? '-translate-x-full' : ''
       }`"
     >
@@ -51,7 +51,7 @@
       </ul>
     </div>
     <div
-      :class="`bg-black fixed   h-screen w-1/2 right-0 top-0 transition-all ease-in-out transform delay-200 duration-700 ${
+      :class="`bg-black fixed   h-screen w-1/2 right-0 top-0 transition-all ease-in-out transform delay-200 duration-700 z-40 ${
         !btnActive ? 'translate-x-full' : ''
       }`"
     >
@@ -73,8 +73,6 @@
           text-gray-400 text-xl
         "
       >
-       
-
         <button
           @click="scroll('about')"
           class="
@@ -88,7 +86,7 @@
           ABOUT
         </button>
 
-         <button
+        <button
           @click="scroll('contact')"
           class="
             select-none
@@ -98,7 +96,7 @@
             focus:outline-none
           "
         >
-        CONTACT
+          CONTACT
         </button>
       </ul>
     </div>
@@ -107,7 +105,7 @@
       @click="btnActive = !btnActive"
       :class="`w-12
         h-12
-        z-30
+       z-40
         ${btnActive ? 'rotate-45 bg-red-800' : 'bg-black '}
         text-white
         delay-500

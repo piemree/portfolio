@@ -7,7 +7,7 @@
 
     <div class="mt-10">
      <a href="/cv/emre-demir.pdf"   download>
-        <button class="home-btn focus:outline-none">
+        <button class="home-btn ">
         Resume
       </button>
      </a>
