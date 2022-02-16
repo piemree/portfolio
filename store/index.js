@@ -3,23 +3,26 @@ export const state = () => ({
 })
 
 export const mutations = {
-  SET_REPOS(state, repos) {
-    state.repositories = repos
+  SET_REPOS(state, data) {
+    state.repositories = data.filter((el) =>
+      el.id == 370508586 || el.id == 359844627 ? false : true
+    )
   },
 }
 
-export const getters = {}
-
 export const actions = {
- /*  async nuxtServerInit({ dispatch }) {
-    await dispatch('getRepos')
-  }, */
+  async nuxtServerInit({ commit }) {
+    let { data } = await this.$axios.get(
+      'https://api.github.com/users/piemree/repos'
+    )
 
-/*   getRepos({ commit }) {
-      console.log("object");
-    this.$axios
-      .get('https://api.github.com/users/piemree/repos')
-      .then((result) => commit('SET_REPOS', result))
-      .catch((err) => console.log(err))
-  }, */
+    data = data
+      .sort(
+        (a, b) =>
+          new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      )
+      .reverse()
+
+    commit('SET_REPOS', data)
+  },
 }

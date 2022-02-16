@@ -14,7 +14,7 @@
     <p class="text-xl tb:w-1/3 tb:text-2xl mb-7 font-thin tb:mb-0  w-3/4">
       I'm a Full Stack Web developer located Bursa. I'm still a Computer
       Engineering student. I very enjoy solving problems and make people's life
-      easier. I currently using those technologies to do these;
+      easier. I currently using those technologies.
     </p>
     <section class="flex justify-evenly tb:w-2/4 w-3/4">
       <svg

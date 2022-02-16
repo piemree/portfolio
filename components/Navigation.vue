@@ -37,7 +37,7 @@
         </button>
 
         <button
-          @click="scroll('projects')"
+          @click="scroll('about')"
           class="
             select-none
             transition-all
@@ -46,7 +46,7 @@
             focus:outline-none
           "
         >
-          PROJECTS
+          ABOUT
         </button>
       </ul>
     </div>
@@ -74,7 +74,7 @@
         "
       >
         <button
-          @click="scroll('about')"
+          @click="scroll('projects')"
           class="
             select-none
             transition-all
@@ -83,7 +83,7 @@
             focus:outline-none
           "
         >
-          ABOUT
+          PROJECTS
         </button>
 
         <button

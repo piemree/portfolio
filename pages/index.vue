@@ -1,9 +1,8 @@
 <template>
-
   <div class="container" >
     <Home id="home"  />
-    <Projects id="projects" />
     <About id="about"  />
+    <Projects id="projects" />
     <Contact id="contact"  />
   </div>
 

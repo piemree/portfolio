@@ -1,24 +1,14 @@
 <template>
   <div
-    id="projects"
+    id="projectsPage"
     class="flex flex-col justify-center items-center min-h-screen w-screen py-5"
   >
     <ul
-      class="
-        grid
-        normal:grid-cols-4
-        laptop:grid-cols-3
-        tb:grid-cols-2
-        grid-cols-1
-        gap-y-10
-        center
-        w-full
-        justify-items-center
-      "
+      class="grid normal:grid-cols-4 laptop:grid-cols-3 tb:grid-cols-2 grid-cols-1 gap-y-10 center w-full justify-items-center mb-10"
     >
       <li
-        :class="`w-96  h-56  block bg-white border border-black bg-cover bg-no-repeat  `"
-        v-for="repo in repos"
+        class="w-96 h-56 block bg-white border border-black bg-cover bg-no-repeat"
+        v-for="repo in repos.slice(start, end)"
         :key="repo.id"
       >
         <div class="w-full h-full flex flex-col justify-evenly items-center">
@@ -42,38 +32,62 @@
         </div>
       </li>
     </ul>
+    <pagination
+      :records="repos.length"
+      v-model="page"
+      :per-page="4"
+      @paginate="onPaginate"
+    >
+    </pagination>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import Pagination from 'vue-pagination-2'
 export default {
   data() {
     return {
-      repos: [],
+      showLess: true,
+      page: 1,
+      start: 0,
+      end: 4,
     }
   },
-  mounted() {
-    this.$axios
-      .get('https://api.github.com/users/piemree/repos')
-      .then((result) => {
-        let data = result.data.filter((el) => {
-          if (el.id == 370508586 || el.id == 359844627) {
-            return false
-          }
 
-          return true
-        })
-        this.repos = [...data]
-          .sort(
-            (a, b) =>
-              new Date(a.created_at).getTime() -
-              new Date(b.created_at).getTime()
-          )
-          .reverse()
-
-        this.repos.filter((el) => el.id != 370508586)
-      })
-      .catch((err) => console.log(err))
+  computed: {
+    ...mapState({
+      repos: (state) => state.repositories,
+    }),
+  },
+  methods: {
+    onPaginate(e) {
+      this.start = e * 4 - 4
+      this.end = e * 4
+    },
+  },
+  components: {
+    Pagination,
   },
 }
 </script>
+<style>
+.VuePagination nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.VuePagination nav p {
+  display: none;
+}
+.VuePagination > nav > ul > li {
+  display: inline-block;
+  margin: 0 5px;
+}
+.VuePagination > nav > ul > li > a {
+  cursor: pointer;
+}
+.VuePagination > nav > ul > li > a[disabled] {
+  display:none;
+}
+</style>
